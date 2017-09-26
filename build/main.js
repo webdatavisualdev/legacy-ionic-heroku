@@ -496,20 +496,23 @@ var SettingsPage = (function () {
         this.user.logout();
     };
     SettingsPage.prototype.update = function () {
-        var loading = this.load.create({
-            spinner: 'hide',
-            content: "\n        <div class=\"loading\">\n          <h4>Legacy</h4>\n        </div>"
-        });
-        loading.present();
-        var toast = this.toast.create({
-            message: "User has been updated successfully.",
-            duration: 1500,
-            position: 'bottom'
-        });
-        this.user.updateUser(this.updateData).then(function (res) {
-            loading.dismiss();
-            toast.present();
-        });
+        // let loading = this.load.create({
+        //   spinner: 'hide',
+        //   content: `
+        //     <div class="loading">
+        //       <h4>Legacy</h4>
+        //     </div>`
+        // });
+        // loading.present();
+        // let toast = this.toast.create({
+        //   message: "User has been updated successfully.",
+        //   duration: 1500,
+        //   position: 'bottom'
+        // });
+        // this.user.updateUser(this.updateData).then(res => {
+        //   loading.dismiss();
+        //   toast.present();
+        // });
     };
     SettingsPage.prototype.sendFeedback = function () {
     };
@@ -522,9 +525,10 @@ SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-settings',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n        </g></svg>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item-group>\n    <ion-item-divider color="light">About</ion-item-divider>\n    <ion-item>\n      <ion-input type="text" placeholder="First Name" [(ngModel)]="updateData.firstname"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="Last Name" [(ngModel)]="updateData.lastname"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="Job Title" [(ngModel)]="updateData.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" placeholder="Enter New Password" [(ngModel)]="updateData.password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" placeholder="Enter Confirm Password" [(ngModel)]="updateData.confirmpassword"></ion-input>\n    </ion-item>\n    <!-- <ion-item-divider color="light">Support</ion-item-divider>\n    <button ion-item (click)="sendFeedback()" class="btn" detail-none>Send us Feedback</button>\n    <button ion-item (click)="rateUs()" class="btn" detail-none>Rate Us!</button> -->\n    <ion-item-divider color="light">Logged in as {{facility}}</ion-item-divider>\n    <button ion-item (click)="signOut()" class="btn" detail-none>Log out</button>\n  </ion-item-group>\n  <button block ion-button (click)="update()" [disabled]="!updateData.firstname && !updateData.lastname && !updateData.title && !updateData.password && !updateData.confirmpassword || updateData.password !== updateData.confirmpassword" class="btn btn-blue btn-update">Update</button>  \n</ion-content>\n'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/settings/settings.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _e || Object])
 ], SettingsPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=settings.js.map
 
 /***/ }),
