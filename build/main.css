@@ -27765,7 +27765,7 @@ ion-app ion-loading .loading h4 {
   float: left;
 }
 
-.menu-inner .btn.isDirectNew .direct-point {
+.menu-inner .btn.isDirectLogin .direct-point {
   background: #87da9c;
 }
 
@@ -27876,6 +27876,23 @@ page-chat .btn-send {
 page-chat .readers {
   font-size: 12px;
   color: #9aa1b0;
+}
+
+page-chat .auto-list {
+  position: absolute;
+  width: calc(100% - 40px);
+  bottom: 0;
+  margin: 0;
+  border: solid 2px #cccccc !important;
+  border-radius: 5px;
+}
+
+page-chat .auto-list ion-item {
+  padding: 0 15px !important;
+}
+
+page-chat .auto-list ion-item ion-label {
+  margin: 0 !important;
 }
 
 page-chat ion-footer {
