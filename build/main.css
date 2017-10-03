@@ -13539,11 +13539,11 @@ input.text-input:-webkit-autofill {
 .item-block {
   margin: 0;
   padding: 0;
-  text-align: initial;
+  text-align: left;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  /* display: -ms-flexbox;
+  display: flex; */
   overflow: hidden;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -13593,8 +13593,8 @@ input.text-input:-webkit-autofill {
 .input-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  /* display: -ms-flexbox;
+  display: flex; */
   overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -27496,17 +27496,26 @@ ion-navbar.toolbar {
 
 @font-face {
   font-family: "nameFont";
-  src: url("../assets/fonts/Theinhardt-Bold.ttf") format("truetype");
+  src: url("../assets/fonts/Theinhardt-Bold.ttf") format("truetype"),
+  url('../assets/fonts/Theinhardt-Bold.eot?#iefix') format('embedded-opentype'), 
+  url('../assets/fonts/Theinhardt-Bold.woff') format('woff'), 
+  url('../assets/fonts/Theinhardt-Bold.svg#svgFontName') format('svg');
 }
 
 @font-face {
   font-family: "bodyFont";
-  src: url("../assets/fonts/Theinhardt-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/Theinhardt-Regular.ttf") format("truetype"),
+  url('../assets/fonts/Theinhardt-Regular.eot?#iefix') format('embedded-opentype'), 
+  url('../assets/fonts/Theinhardt-Regular.woff') format('woff'), 
+  url('../assets/fonts/Theinhardt-Regular.svg#svgFontName') format('svg');
 }
 
 @font-face {
   font-family: "headFont";
-  src: url("../assets/fonts/DINNextSlabPro-Bold.ttf") format("truetype");
+  src: url("../assets/fonts/DINNextSlabPro-Bold.ttf") format("truetype"),
+  url('../assets/fonts/DINNextSlabPro-Bold.eot?#iefix') format('embedded-opentype'), 
+  url('../assets/fonts/DINNextSlabPro-Bold.woff') format('woff'), 
+  url('../assets/fonts/DINNextSlabPro-Bold.svg#svgFontName') format('svg');
 }
 
 ion-app .toolbar-content-md {
@@ -27960,7 +27969,7 @@ page-directory ion-fab button ion-icon {
 }
 
 page-directory ion-input {
-  padding: 0 10px;
+  /* padding: 0 10px; */
 }
 
 page-directory .avatar {
@@ -28146,9 +28155,13 @@ page-settings .scroll-content {
 }
 
 page-settings .scroll-content ion-item, page-settings .scroll-content button {
-  padding-left: 20px !important;
+  /* padding-left: 20px !important; */
   border-bottom: 1px solid #e5e5e5;
   font-weight: normal !important;
+}
+
+page-settings .scroll-content button {
+  padding-left: 20px !important; 
 }
 
 page-settings .scroll-content ion-item-divider {
@@ -28157,7 +28170,7 @@ page-settings .scroll-content ion-item-divider {
 
 page-settings .scroll-content ion-input input {
   border: 0 !important;
-  padding: 0 !important;
+  padding: 20px !important;
   font-size: 14px;
 }
 
