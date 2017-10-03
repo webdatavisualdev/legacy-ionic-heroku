@@ -43,6 +43,23 @@
         }
       });
     }
+    if ( document.attachEvent ) {
+
+        // create a custom property name jqmReady and set it to 0
+        document.documentElement.jqmReady = 0;
+        // since IE8 does not allow to listen to custom events, 
+        // just listen to onpropertychange
+        document.documentElement.attachEvent("onpropertychange", function(event) {
+
+            // if the property changed is the custom jqmReady property
+            if (event.propertyName == "jqmReady") {
+                trigAnalytics("jqmReady");
+                alert("gotcha")
+                // remove listener, since it's only used once
+                document.documentElement.detachEvent("onpropertychange", arguments.callee);
+            }
+        });
+    }
   </script>
 
   <link href="build/main.css" rel="stylesheet">
