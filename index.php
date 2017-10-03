@@ -17,8 +17,10 @@
   <link href="https://fonts.googleapis.com/css?family=Faustina:700" rel="stylesheet">
   <meta name="theme-color" content="#4e8ef7">
 
+  <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>    
+  
   <!-- cordova.js required for cordova apps -->
-  <script src="cordova.js"></script>
+  <!-- <script src="cordova.js"></script> -->
 
   <!-- un-comment this code to enable service worker
   <script>
@@ -28,6 +30,20 @@
         .catch(err => console.error('Error', err));
     }
   </script>-->
+  <script type="text/javascript">
+    if (!Object.hasOwnProperty('name')) {
+      Object.defineProperty(Function.prototype, 'name', {
+        get: function() {
+          var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
+          var name = matches && matches.length > 1 ? matches[1] : "";
+          // For better performance only parse once, and then cache the
+          // result through a new accessor for repeated access.
+          Object.defineProperty(this, 'name', {value: name});
+          return name;
+        }
+      });
+    }
+  </script>
 
   <link href="build/main.css" rel="stylesheet">
   <script type="text/javascript">
