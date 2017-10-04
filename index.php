@@ -16,12 +16,11 @@
   <link rel="manifest" href="manifest.json">
   <link href="https://fonts.googleapis.com/css?family=Faustina:700" rel="stylesheet">
   <meta name="theme-color" content="#4e8ef7">
-
-  <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>    
+  <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
   
   <!-- cordova.js required for cordova apps -->
-  <!-- <script src="cordova.js"></script> -->
-
+  <script src="cordova.js"></script>
+  
   <!-- un-comment this code to enable service worker
   <script>
     if ('serviceWorker' in navigator) {
@@ -30,37 +29,6 @@
         .catch(err => console.error('Error', err));
     }
   </script>-->
-  <script type="text/javascript">
-    // if (!Object.hasOwnProperty('name')) {
-    //   Object.defineProperty(Function.prototype, 'name', {
-    //     get: function() {
-    //       var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
-    //       var name = matches && matches.length > 1 ? matches[1] : "";
-    //       // For better performance only parse once, and then cache the
-    //       // result through a new accessor for repeated access.
-    //       Object.defineProperty(this, 'name', {value: name});
-    //       return name;
-    //     }
-    //   });
-    // }
-    // if ( document.attachEvent ) {
-
-    //     // create a custom property name jqmReady and set it to 0
-    //     document.documentElement.jqmReady = 0;
-    //     // since IE8 does not allow to listen to custom events, 
-    //     // just listen to onpropertychange
-    //     document.documentElement.attachEvent("onpropertychange", function(event) {
-
-    //         // if the property changed is the custom jqmReady property
-    //         if (event.propertyName == "jqmReady") {
-    //             trigAnalytics("jqmReady");
-    //             alert("gotcha")
-    //             // remove listener, since it's only used once
-    //             document.documentElement.detachEvent("onpropertychange", arguments.callee);
-    //         }
-    //     });
-    // }
-  </script>
 
   <link href="build/main.css" rel="stylesheet">
   <script type="text/javascript">
