@@ -272,7 +272,7 @@ var ChatPage = (function () {
 }());
 ChatPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-chat',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/chat/chat.html"*/'<ion-header>\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n          <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n          <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n          <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n          </g></svg>\n      </button>\n      <ion-title>{{title}}</ion-title>\n      <button class="option">\n          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n          <circle data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="12" cy="12" r="2" stroke-linejoin="round"></circle>\n          <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="3" cy="12" r="2" stroke-linejoin="round"></circle>\n          <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="21" cy="12" r="2" stroke-linejoin="round"></circle>\n          </g></svg>\n      </button>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list no-lines>\n    <ion-item *ngFor="let message of messages; let i = index">\n      <div class="message_top">\n        <div class="avatar-div">\n          <!-- <img class="avatar" [src]="message.photoUrl" width="35" height="35"> -->\n          <div class="avatar" [style.backgroundColor]="colors[message.name.length % 4]">{{message.name.substring(0,1).toUpperCase()}}</div>\n        </div>\n        <div class="text-div">\n          <div class="usr_n">{{message.name}}</div>\n          <span class="time_stamp">{{message.displayTime}}</span>\n          <div class="message-div">\n            <p>{{message.message}}</p>              \n            <span *ngIf="isReadUserExist[i]" (click)="showMessageModal(message.readUsers)" class="readers">Read by {{message.readUsers.length - 1}}</span>\n          </div>\n        </div>\n      </div>\n    </ion-item>\n  </ion-list>\n  <ion-list no-lines *ngIf="showUserList" class="auto-list">\n    <ion-item *ngFor="let u of filteredUsers" (click)="setUser(u)">@{{u.firstName + u.lastName}}</ion-item>\n  </ion-list>\n</ion-content>\n<ion-footer>\n  <ion-input type="text" placeholder="Enter message..." [(ngModel)]="newMessage" (keyup.enter)="send()" (ionChange)="checkName($event)"></ion-input>\n  <button ion-button item-right (click)="send()" class="btn-send">Send</button>\n</ion-footer>'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/chat/chat.html"*/
+        selector: 'page-chat',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/chat/chat.html"*/'<ion-header>\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n          <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n          <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n          <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n          </g></svg>\n      </button>\n      <ion-title>{{title}}</ion-title>\n      <button class="option">\n          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n          <circle data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="12" cy="12" r="2" stroke-linejoin="round"></circle>\n          <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="3" cy="12" r="2" stroke-linejoin="round"></circle>\n          <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="21" cy="12" r="2" stroke-linejoin="round"></circle>\n          </g></svg>\n      </button>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list no-lines>\n    <ion-item *ngFor="let message of messages; let i = index">\n      <div class="message_top">\n        <div class="avatar-div">\n          <!-- <img class="avatar" [src]="message.photoUrl" width="35" height="35"> -->\n          <div class="avatar" [style.backgroundColor]="colors[message.name.length % 4]">{{message.name.substring(0,1).toUpperCase()}}</div>\n        </div>\n        <div class="text-div">\n          <div class="usr_n">{{message.name}} <span *ngIf="message.title">/ {{message.title}}</span></div>\n          <span class="time_stamp">{{message.displayTime}}</span>\n          <div class="message-div">\n            <p>{{message.message}}</p>              \n            <span *ngIf="isReadUserExist[i]" (click)="showMessageModal(message.readUsers)" class="readers">Read by {{message.readUsers.length - 1}}</span>\n          </div>\n        </div>\n      </div>\n    </ion-item>\n  </ion-list>\n  <ion-list no-lines *ngIf="showUserList" class="auto-list">\n    <ion-item *ngFor="let u of filteredUsers" (click)="setUser(u)">@{{u.firstName + u.lastName}}</ion-item>\n  </ion-list>\n</ion-content>\n<ion-footer>\n  <ion-input type="text" placeholder="Enter message..." [(ngModel)]="newMessage" (keyup.enter)="send()" (ionChange)="checkName($event)"></ion-input>\n  <button ion-button item-right (click)="send()" class="btn-send">Send</button>\n</ion-footer>'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/chat/chat.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -503,23 +503,20 @@ var SettingsPage = (function () {
         this.user.logout();
     };
     SettingsPage.prototype.update = function () {
-        // let loading = this.load.create({
-        //   spinner: 'hide',
-        //   content: `
-        //     <div class="loading">
-        //       <h4>Legacy</h4>
-        //     </div>`
-        // });
-        // loading.present();
-        // let toast = this.toast.create({
-        //   message: "User has been updated successfully.",
-        //   duration: 1500,
-        //   position: 'bottom'
-        // });
-        // this.user.updateUser(this.updateData).then(res => {
-        //   loading.dismiss();
-        //   toast.present();
-        // });
+        var loading = this.load.create({
+            spinner: 'hide',
+            content: "\n        <div class=\"loading\">\n          <h4>Legacy</h4>\n        </div>"
+        });
+        loading.present();
+        var toast = this.toast.create({
+            message: "User has been updated successfully.",
+            duration: 1500,
+            position: 'bottom'
+        });
+        this.user.updateUser(this.updateData).then(function (res) {
+            loading.dismiss();
+            toast.present();
+        });
     };
     SettingsPage.prototype.sendFeedback = function () {
     };
@@ -532,9 +529,10 @@ SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-settings',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n        </g></svg>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item-group>\n    <ion-item-divider color="light">About</ion-item-divider>\n    <ion-item>\n      <ion-input type="text" placeholder="First Name" [(ngModel)]="updateData.firstname"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="Last Name" [(ngModel)]="updateData.lastname"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="Job Title" [(ngModel)]="updateData.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" placeholder="Enter New Password" [(ngModel)]="updateData.password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" placeholder="Enter Confirm Password" [(ngModel)]="updateData.confirmpassword"></ion-input>\n    </ion-item>\n    <!-- <ion-item-divider color="light">Support</ion-item-divider>\n    <button ion-item (click)="sendFeedback()" class="btn" detail-none>Send us Feedback</button>\n    <button ion-item (click)="rateUs()" class="btn" detail-none>Rate Us!</button> -->\n    <ion-item-divider color="light">Logged in as {{facility}}</ion-item-divider>\n    <button ion-item (click)="signOut()" class="btn" detail-none>Log out</button>\n  </ion-item-group>\n  <button block ion-button (click)="update()" [disabled]="!updateData.firstname && !updateData.lastname && !updateData.title && !updateData.password && !updateData.confirmpassword || updateData.password !== updateData.confirmpassword" class="btn btn-blue btn-update">Update</button>  \n</ion-content>\n'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/settings/settings.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_user__["a" /* UserProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _e || Object])
 ], SettingsPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=settings.js.map
 
 /***/ }),
@@ -1147,7 +1145,7 @@ var DirectoryPage = (function () {
 }());
 DirectoryPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-directory',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/directory/directory.html"*/'<!--\n  Generated template for the Directory page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n        </g></svg>\n    </button>\n    <ion-title>{{title}}</ion-title>\n    <button class="option">\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <circle data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="12" cy="12" r="2" stroke-linejoin="round"></circle>\n        <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="3" cy="12" r="2" stroke-linejoin="round"></circle>\n        <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="21" cy="12" r="2" stroke-linejoin="round"></circle>\n        </g></svg>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-input (keyup)="getUsers($event)" id="search" placeholder="search..."></ion-input>\n  <p class="result">{{result}}</p>\n  <ion-list class="userlist" no-lines>\n    <ion-item *ngFor="let user of users">\n      <div class="item">\n        <!-- <img [src]="user.photoUrl" width="40" height="40" class="avatar"> -->\n        <div class="avatar" [style.backgroundColor]="colors[(user.firstName.length + user.lastName.length + 1) % 4]">{{user.firstName.substring(0,1).toUpperCase()}}</div>\n        <div class="usr_s">\n          {{user.firstName + " " + user.lastName}}\n          <div class="title_rslt"></div>\n        </div>\n      </div>\n    </ion-item>\n  </ion-list>\n  <ion-fab>\n    <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/directory/directory.html"*/
+        selector: 'page-directory',template:/*ion-inline-start:"/Volumes/data/git-projects/legacy/src/pages/directory/directory.html"*/'<!--\n  Generated template for the Directory page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <line data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="12" x2="23" y2="12" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="12" y1="5" x2="23" y2="5" stroke-linejoin="round"></line>\n        <line fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1" y1="19" x2="12" y2="19" stroke-linejoin="round"></line>\n        </g></svg>\n    </button>\n    <ion-title>{{title}}</ion-title>\n    <button class="option">\n        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)">\n        <circle data-color="color-2" fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="12" cy="12" r="2" stroke-linejoin="round"></circle>\n        <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="3" cy="12" r="2" stroke-linejoin="round"></circle>\n        <circle fill="none" stroke="#252b3b" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="21" cy="12" r="2" stroke-linejoin="round"></circle>\n        </g></svg>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-input (keyup)="getUsers($event)" id="search" placeholder="search..."></ion-input>\n  <p class="result">{{result}}</p>\n  <ion-list class="userlist" no-lines>\n    <ion-item *ngFor="let user of users">\n      <div class="item">\n        <!-- <img [src]="user.photoUrl" width="40" height="40" class="avatar"> -->\n        <div class="avatar" [style.backgroundColor]="colors[(user.firstName.length + user.lastName.length + 1) % 4]">{{user.firstName.substring(0,1).toUpperCase()}}</div>\n        <div class="usr_s">\n          {{user.firstName + " " + user.lastName}} <span *ngIf="user.title">/ {{user.title}}</span>\n        </div>\n      </div>\n    </ion-item>\n  </ion-list>\n  <ion-fab>\n    <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/Volumes/data/git-projects/legacy/src/pages/directory/directory.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
@@ -1719,16 +1717,22 @@ var UserProvider = (function () {
                         resolve('success');
                     }
                 });
-                _this.subscribes[9] = _this.db.list('messages').subscribe(function (data) {
-                    data.map(function (d) {
-                        if ((d.email !== '' && d.email === localStorage.getItem('email')) || (d.phoneNumber === localStorage.getItem("phone") && d.email === '')) {
-                            var firstName = user.firstname !== '' ? user.firstname : localStorage.getItem("firstName");
-                            var lastName = user.lastname !== '' ? user.lastname : localStorage.getItem("lastName");
-                            d.title = user.title !== '' ? user.title : (typeof d.title === 'undefined' ? '' : d.title);
-                            d.name = firstName + ' ' + lastName;
-                            _this.db.list('messages').update(d.$key, d);
-                        }
-                    });
+            });
+            _this.subscribes[9] = _this.db.list('messages').subscribe(function (data) {
+                data.map(function (d) {
+                    if ((d.email !== '' && d.email === localStorage.getItem('email')) || (d.phoneNumber === localStorage.getItem("phone") && d.email === '')) {
+                        var firstName = user.firstname !== '' ? user.firstname : localStorage.getItem("firstName");
+                        var lastName = user.lastname !== '' ? user.lastname : localStorage.getItem("lastName");
+                        d.title = user.title !== '' ? user.title : (typeof d.title === 'undefined' ? '' : d.title);
+                        d.name = firstName + ' ' + lastName;
+                        d.readUsers.map(function (u) {
+                            if (u.name === localStorage.getItem('firstName') + ' ' + localStorage.getItem('lastName')) {
+                                u.name = d.name;
+                            }
+                        });
+                        d.directChannel.replace(localStorage.getItem('firstName') + ' ' + localStorage.getItem('lastName'), d.name);
+                        _this.db.list('messages').update(d.$key, d);
+                    }
                 });
             });
         });
@@ -1756,12 +1760,10 @@ var UserProvider = (function () {
 }());
 UserProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */],
-        __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */],
-        __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _d || Object])
 ], UserProvider);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=user.js.map
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(387).Buffer))
 
